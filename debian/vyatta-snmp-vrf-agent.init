@@ -1,0 +1,45 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:           vyatta-snmp-vrf-agent
+# Required-Start:     $network $syslog
+# Required-Stop:      $network $syslog
+# Default-Start:      2 3 4 5
+# Default-Stop:       0 1 6
+# Short-Description:  Vyatta SNMP VRF subagent
+# Description:        Vyatta SNMP VRF subagent for routing instances
+### END INIT INFO
+
+set -e
+
+VYATTA_SNMP_VRF_AGENT="/opt/vyatta/sbin/vyatta-snmp-vrf-agent"
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting the Vyatta SNMP VRF agent..."
+    start-stop-daemon --quiet --start --oknodo --exec "$VYATTA_SNMP_VRF_AGENT"
+    ;;
+  stop)
+    log_daemon_msg "Stopping the Vyatta SNMP VRF agent..."
+    start-stop-daemon --stop --signal 2 --quiet --oknodo --retry 2 --exec "$VYATTA_SNMP_VRF_AGENT"
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  reload|force-reload)
+    log_daemon_msg "Reloading Vyatta SNMP VRF agent..."
+    start-stop-daemon --stop --signal 2 --exec "$VYATTA_SNMP_VRF_AGENT"
+    ;;
+  status)
+    status=0
+    status_of_proc "$VYATTA_SNMP_VRF_AGENT" || status=$?
+    exit $status
+    ;;
+  *)
+    echo "Usage: /etc/init.d/vyatta-snmp-vrf-agent {start|stop|restart|reload|force-reload|status}"
+    exit 1
+esac
+
+exit 0

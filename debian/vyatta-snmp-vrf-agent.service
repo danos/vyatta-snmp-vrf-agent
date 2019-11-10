@@ -1,0 +1,10 @@
+[Unit]
+Description=Vyatta SNMP VRF Agent
+
+[Service]
+Type=simple
+ExecStart=/opt/vyatta/sbin/vyatta-snmp-vrf-agent -f
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

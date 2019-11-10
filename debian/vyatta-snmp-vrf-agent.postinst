@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+#DEBHELPER#
+
+disable_builtin_mibs() {
+    if [ -f /etc/default/snmpd ]; then
+        sed -i -e '/SNMPDOPTS+=/d' /etc/default/snmpd
+        echo "SNMPDOPTS+=' -I -ip -I -ipv6 -I -ipDefaultRouterTable -I -ipIfStatsTable -I -ipAddressTable -I -ipAddressPrefixTable -I -ipCidrRouteTablet'" >> /etc/default/snmpd
+    fi
+}
+
+case "$1" in
+    install|upgrade|configure)
+        disable_builtin_mibs
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        :
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
