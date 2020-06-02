@@ -49,6 +49,8 @@ else
 fi
 AC_MSG_RESULT([$have_typedef_u64])
 
+PKG_CHECK_MODULES([NETSNMP_AGENT_VYATTA], [netsnmp-agent-vyatta])
+
 AC_SUBST(CC)
 AC_SUBST(DEFS)
 AC_SUBST(INSTALL)

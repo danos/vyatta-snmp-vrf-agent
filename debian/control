@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Build-Depends: debhelper (>= 9), autoconf, autotools-dev, debianutils (>=1.13.1),
  dh-autoreconf, dh-systemd,
- bvnos-linux-libc-dev, libsnmp-dev (>= 5.7.3+dfsg-2+vyatta5), libsnmp-dev (<< 5.8), libsnmp-dev-vyatta, libvrfmanager-vyatta-dev
+ bvnos-linux-libc-dev, libsnmp-dev (>= 5.7.3+dfsg-2+vyatta5), libsnmp-dev (<< 5.8), libsnmp-dev-vyatta, libvrfmanager-vyatta-dev, pkg-config
 Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
 Standards-Version: 3.9.8
 
