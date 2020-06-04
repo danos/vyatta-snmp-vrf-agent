@@ -1,3 +1,12 @@
+vyatta-snmp-vrf-agent (1.12) unstable; urgency=medium
+
+  [ Duncan Eastoe ]
+  * Link against libnetsnmpagent-vyatta
+
+  [ Charles (Chas) Williams ]
+
+ -- Charles (Chas) Williams <ciwillia@vyatta.att-mail.com>  Thu, 04 Jun 2020 13:52:46 -0400
+
 vyatta-snmp-vrf-agent (1.11) unstable; urgency=medium
 
   * DANOS Import master
