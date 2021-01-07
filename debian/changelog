@@ -1,3 +1,10 @@
+vyatta-snmp-vrf-agent (1.13) unstable; urgency=medium
+
+  [ Duncan Eastoe ]
+  * Specify Restart=on-failure in VRF agent .service
+
+ -- Charles (Chas) Williams <ciwillia@vyatta.att-mail.com>  Thu, 07 Jan 2021 14:25:04 -0500
+
 vyatta-snmp-vrf-agent (1.12) unstable; urgency=medium
 
   [ Duncan Eastoe ]
